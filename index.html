@@ -119,6 +119,14 @@
             filter: drop-shadow(1px 2px 2px rgba(0,0,0,.55));
         }
 
+        /* Smaller visible arrow on mobile; retain the 46px tap target */
+        @media (max-width: 600px) {
+            .enter-arrow svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
         /* =========================================
            THE STEALTH IFRAME (PORTFOLIO VIEWER)
            ========================================= */
