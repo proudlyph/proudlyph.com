@@ -90,50 +90,31 @@
         .star-img3 { width: 45px; }
 
 
-        /* Centered solid-white embossed 3D entrance indicator */
+        /* Centered standalone white northeast arrow */
         .enter-arrow {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             z-index: 35;
-            width: 58px;
-            height: 58px;
+            width: 46px;
+            height: 46px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #ffffff;
-            border-radius: 8px;
             color: #ffffff;
-            background: linear-gradient(150deg, #ffffff 0%, #f8f8f8 48%, #dedede 100%);
-            box-shadow:
-                inset 2px 2px 2px #ffffff,
-                inset -3px -3px 4px rgba(90,90,90,.50),
-                0 4px 0 #a4a4a4,
-                0 8px 0 rgba(60,60,60,.82),
-                0 12px 13px rgba(0,0,0,.42);
-            pointer-events: none;
-        }
-        .enter-arrow::before {
-            content: "";
-            position: absolute;
-            inset: 4px;
-            border: 1px solid rgba(255,255,255,.95);
-            border-radius: 3px;
-            box-shadow: inset 0 -1px 2px rgba(85,85,85,.35);
             pointer-events: none;
         }
         .enter-arrow svg {
-            position: relative;
-            z-index: 1;
-            width: 30px;
-            height: 30px;
+            display: block;
+            width: 40px;
+            height: 40px;
             fill: none;
             stroke: #ffffff;
-            stroke-width: 3.2;
+            stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
-            filter: drop-shadow(0px 2px 1px rgba(62,62,62,.95)) drop-shadow(1px 3px 2px rgba(35,35,35,.55));
+            filter: drop-shadow(1px 2px 2px rgba(0,0,0,.55));
         }
 
         /* =========================================
