@@ -88,35 +88,6 @@
         .star-img2 { width: 65px; }
         .star-img3 { width: 45px; }
 
-        /* =========================================
-           CENTER CURSOR INDICATOR
-           ========================================= */
-        .cursor-indicator {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 54px;
-            height: 54px;
-            z-index: 30;
-            pointer-events: none;
-            animation: soft-pulse 2.2s ease-in-out infinite;
-        }
-        .cursor-indicator svg {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes soft-pulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.92;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.08);
-                opacity: 1;
-            }
-        }
 
         /* =========================================
            THE STEALTH IFRAME (PORTFOLIO VIEWER)
@@ -162,11 +133,6 @@
             <img src="data:image/webp;base64,UklGRi4EAABXRUJQVlA4WAoAAAAQAAAARQAAJQAAQUxQSOcBAAABoERtmyHJ+iIix7btmZVt27ZtrMydrZ1t27Zt28yI+EalqLlYRsQE4D+59P4OgPgLSJGlI0T0KaxjfahoUyik/euxpIi6jfzGnvCiS6EEjbFPEkkRZXuo6XMEvGjyUJ2atOZtaqVEYBeUF1gpKYGzVpP0OR1BC0BEKFQ1mJokrflaLU3iBHHjxIrhSTioSjdq3bnvkHETZ81fumbbwRu0DPzxxdNHD+/duXX9yvlTxy7UgQqfQBKGahnQWgZvSooIQIq2V8mvX/3ftdaGwVprjTFGfyPfTssKgUgKxOt4mjSa4bY++W5SVkAgsgqQDfeRVodHk2/HZwGURKSFAlBtC8Nr+XFSJkBJOKkEUGbDFxuasUtyAp6Es0oCe6lD8tkcsQRcVqrYd8OQDe/ElY5hB3UgG4CaXeG5pFCemn+0vqHx7R+MvRNHCIckDvzJaJLfSWpDkprd4LmjUIGapDbki5kVslWZ95I02tLYO3GkcGg3tdWWPN83FX5P1fsUSd9qdofnikI5ap/k9noeoJRUChBVV30nv+t7cYVwQ8hYR33y2+KSADyB34UHIN/4RyQHwXNDIj/5elo+QCqBIJUEknY+ZMa6IpBs0+i0gJIIVXoAcsWFcOPPSiKcwoPLQiqJsEvhzv+DAFZQOCAgAgAA8AwAnQEqRgAmAD7BUKFLp6y/oaq5nMvwGAlsAMvFVkgG2g3D3+73wDePPKAzAB+NbQO0VfzzK/1mQTrNtyuO+NrEvNNag2Pii0ayaMkK2+cZxLc2PSrCt89Q0/gMkO/+RYpcYJuZmPZv3T7DHE2nAAD+3y9HrtYqhF63YigJU+BRUbp+ygjFyc26IbRQbRpvDlzXc4G56N4XWDriVrhhLdypdLP/fAGM9bIdYBsnSWa5J/kuiYY8OjW+6DIwCdwPqCEDpIjNUX/mpvaupD8MXrDRd8YqQXXnjMxfCsbeLGL9hvKWBkvpR9vCvJhkrn+HTq9sCNVOG8xhf4ZJjn9AoLOapDmYIslbE0Z3AcXF3qufO3M6T7aIhXX4v0q57cL6egQ6G+SpRouR/q58mIB6gsqG3DVp7Qt6NEZYPdIUePsBqgOh2ksVy7PqtjoCW3B00bSNzrOzorXpspbR1bFKp6s+bFCfE5P6ev81B+MdZDxrHwlryRim/EXjIDgnPxong+5BcHzniZdtxo1EbcSQKq4EiSTgITuv9UiNs7HqopKUsi/jt5gC5KAnXkBrCXbbiW9Zn6tiYs74IOSZ+PA7LVG8EA30sbTVx84voeVOhl7785JDCL/vvwfWrOgKTnAgyDRMj6EzC5JQE4ETAmM+b6SxR4cNw4JG3hHRovdt/wH5z//DAn7BJc2lUh0A6YJFCneafcPJdfNxIlD3sceAAA==" class="celestial-img star-img2" id="c-star2" alt="Star 2">
             <img src="data:image/webp;base64,UklGRvYDAABXRUJQVlA4WAoAAAAQAAAAPwAAKgAAQUxQSNkBAAABoENtmyHb+v6q2se27cy2zehEtm1Gto3I56Qns23btu6t7vr/YLSm+jKLiAnAP12iqAEUKY3Zc6EjRJT53a+cRNEx1FGkP0x0NPaLXCCKjELJXxxKA9JRMZgi1soORIbMTQkdfykEioamxuKYAxkP45NSWmsTmxkbxTKHcgMZxhittVJKUdqSzvOJHTOH0g0em9LVajdp26P3kKHj5p0TJ8zs3Je1owb06tKqfvWq5UvmSI+iCr8lWccxzJLY/ZLxMOmAopY3xNrAxoacwFlrbRCEVmRVLkVpASHbSpE/OWG8+GEgz7sj/Rpo/0BcmJqzIhsLQ1PaQBp5V4gEiSSOC+RJV0DDSw00uywuBZFtBaAJnpJBlu0cxot17kNPQMPjzJgpNplQrkAp+EzmjoTJOLYV4JVGbXYc48IYtjIYxieDVWJjQpHAMXMgh6A8ImR/JSFzGMifV0QsM/Of5aD8MdRTAmYrcqiOHv5GXMBWZsD4o3GAbcDytC9AKLrGSWDlTgZ5Qyj0zVmxS/ODFAzQ8KjIH9IO2heD/o7lSE3AAABpYMAzkd3+KHVSXvUFDCG+JuRf7KQMlB+EjHM7i4MUkjVA/YMNof0AkAFopEgafiuF1JXyifA/OgBWUDgg9gEAAHALAJ0BKkAAKwA+wUyeS6ekIqGwFV1Q8BgJbA25x/ALMkWzbnbNc9n55m+AbxkjcEjuq11AN1AVc05OgFrRNqhixzkYLJTengL9nTgQyiiosmtSPU/L/fvy8CgFRqDcZqYC+AAA/vkN//6Qf/2Mx/X7jYSMsIg/xqb0L2784Q7t7g5/L6Kn7RR3liPX+N4nf6Vbw32CnBL/cwhDCt4fJzcfktePkHFDDGJ1GC1r1RjpamzouihGFa60Ox1WfG1y1wQcPcj8haf5KhAfN4Hm5QlF2pfG8vqGBOAuOkWr39854CuMvykePuBsvVhed9i17SD+CMFukz8SXaenI38MNoFgrpgCphQVvBzIzGVneERpJaPNII4TpqlaCTGiGu/k+5e6iruX9HF6IYKVFWA4SmyshDqszQX3v8M0nCsjup2FeK4XdzD9pBc7OabzYAiNCwiA+gQsrxYG6Xi4gL2HD4C2pussRN8AkcPspMTVZ1G6qmZ/VMS4yubQlr0/+TDASGovw6zQUCucsV7H7Bc6YonYZaAuV5r1Gyy9Sq9IEdi9YAB/Ktxy/ya1AFq9pf0aHZS6v8BpbpaeLIhS32MxoHHey88wSlPbvk4FcWYGJl+EKGnrzehDFOKT33/zLYP+XNEKxvaqzXUX1o2gM+BbQ0SejMYAAAA=" class="celestial-img star-img3" id="c-star3" alt="Star 3">
 
-            <div class="cursor-indicator" aria-hidden="true">
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 8 L16 42 L24.5 34.5 L31.5 54 L38 51 L31 32.5 L45 32.5 Z" fill="#000000"/>
-                </svg>
-            </div>
         </div>
     </div>
 
