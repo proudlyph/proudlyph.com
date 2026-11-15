@@ -90,7 +90,7 @@
         .star-img3 { width: 45px; }
 
 
-        /* Centered embossed white 3D entrance indicator */
+        /* Centered solid-white embossed 3D entrance indicator */
         .enter-arrow {
             position: absolute;
             left: 50%;
@@ -102,36 +102,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid rgba(255,255,255,.98);
-            border-radius: 7px;
+            border: 3px solid #ffffff;
+            border-radius: 8px;
             color: #ffffff;
-            background: linear-gradient(145deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,.13) 42%, rgba(40,40,40,.12) 100%);
+            background: linear-gradient(150deg, #ffffff 0%, #f8f8f8 48%, #dedede 100%);
             box-shadow:
-                inset 3px 3px 3px rgba(255,255,255,.95),
-                inset -4px -4px 5px rgba(10,20,35,.30),
-                0 3px 0 rgba(255,255,255,.55),
-                0 8px 0 rgba(15,25,40,.40),
-                0 12px 15px rgba(0,0,0,.40),
-                -2px -2px 7px rgba(255,255,255,.45);
+                inset 2px 2px 2px #ffffff,
+                inset -3px -3px 4px rgba(90,90,90,.50),
+                0 4px 0 #a4a4a4,
+                0 8px 0 rgba(60,60,60,.82),
+                0 12px 13px rgba(0,0,0,.42);
             pointer-events: none;
         }
         .enter-arrow::before {
             content: "";
             position: absolute;
             inset: 4px;
-            border: 1px solid rgba(255,255,255,.46);
+            border: 1px solid rgba(255,255,255,.95);
             border-radius: 3px;
+            box-shadow: inset 0 -1px 2px rgba(85,85,85,.35);
             pointer-events: none;
         }
         .enter-arrow svg {
-            width: 29px;
-            height: 29px;
+            position: relative;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
             fill: none;
-            stroke: currentColor;
+            stroke: #ffffff;
             stroke-width: 3.2;
             stroke-linecap: round;
             stroke-linejoin: round;
-            filter: drop-shadow(2px 3px 1px rgba(0,0,0,.65)) drop-shadow(-1px -1px 1px rgba(255,255,255,.80));
+            filter: drop-shadow(0px 2px 1px rgba(62,62,62,.95)) drop-shadow(1px 3px 2px rgba(35,35,35,.55));
         }
 
         /* =========================================
@@ -177,7 +179,7 @@
             <img src="data:image/webp;base64,UklGRvYDAABXRUJQVlA4WAoAAAAQAAAAPwAAKgAAQUxQSNkBAAABoENtmyHb+v6q2se27cy2zehEtm1Gto3I56Qns23btu6t7vr/YLSm+jKLiAnAP12iqAEUKY3Zc6EjRJT53a+cRNEx1FGkP0x0NPaLXCCKjELJXxxKA9JRMZgi1soORIbMTQkdfykEioamxuKYAxkP45NSWmsTmxkbxTKHcgMZxhittVJKUdqSzvOJHTOH0g0em9LVajdp26P3kKHj5p0TJ8zs3Je1owb06tKqfvWq5UvmSI+iCr8lWccxzJLY/ZLxMOmAopY3xNrAxoacwFlrbRCEVmRVLkVpASHbSpE/OWG8+GEgz7sj/Rpo/0BcmJqzIhsLQ1PaQBp5V4gEiSSOC+RJV0DDSw00uywuBZFtBaAJnpJBlu0cxot17kNPQMPjzJgpNplQrkAp+EzmjoTJOLYV4JVGbXYc48IYtjIYxieDVWJjQpHAMXMgh6A8ImR/JSFzGMifV0QsM/Of5aD8MdRTAmYrcqiOHv5GXMBWZsD4o3GAbcDytC9AKLrGSWDlTgZ5Qyj0zVmxS/ODFAzQ8KjIH9IO2heD/o7lSE3AAABpYMAzkd3+KHVSXvUFDCG+JuRf7KQMlB+EjHM7i4MUkjVA/YMNof0AkAFopEgafiuF1JXyifA/OgBWUDgg9gEAAHALAJ0BKkAAKwA+wUyeS6ekIqGwFV1Q8BgJbA25x/ALMkWzbnbNc9n55m+AbxkjcEjuq11AN1AVc05OgFrRNqhixzkYLJTengL9nTgQyiiosmtSPU/L/fvy8CgFRqDcZqYC+AAA/vkN//6Qf/2Mx/X7jYSMsIg/xqb0L2784Q7t7g5/L6Kn7RR3liPX+N4nf6Vbw32CnBL/cwhDCt4fJzcfktePkHFDDGJ1GC1r1RjpamzouihGFa60Ox1WfG1y1wQcPcj8haf5KhAfN4Hm5QlF2pfG8vqGBOAuOkWr39854CuMvykePuBsvVhed9i17SD+CMFukz8SXaenI38MNoFgrpgCphQVvBzIzGVneERpJaPNII4TpqlaCTGiGu/k+5e6iruX9HF6IYKVFWA4SmyshDqszQX3v8M0nCsjup2FeK4XdzD9pBc7OabzYAiNCwiA+gQsrxYG6Xi4gL2HD4C2pussRN8AkcPspMTVZ1G6qmZ/VMS4yubQlr0/+TDASGovw6zQUCucsV7H7Bc6YonYZaAuV5r1Gyy9Sq9IEdi9YAB/Ktxy/ya1AFq9pf0aHZS6v8BpbpaeLIhS32MxoHHey88wSlPbvk4FcWYGJl+EKGnrzehDFOKT33/zLYP+XNEKxvaqzXUX1o2gM+BbQ0SejMYAAAA=" class="celestial-img star-img3" id="c-star3" alt="Star 3">
             <div class="enter-arrow" aria-label="Enter">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 12 H20 M13 5 L20 12 L13 19"/>
+                    <path d="M6 18 L18 6 M10 6 H18 V14"/>
                 </svg>
             </div>
         </div>
