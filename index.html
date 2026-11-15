@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Powered by Barb</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           GLOBAL & NO-SCROLL
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html {
+            width: 100vw; height: 100vh; overflow: hidden;
+            font-family: 'Marcellus', serif;
+            background-color: #ffffff;
+        }
+
+        /* =========================================
+           CHAOTIC, WINDY FLAG BACKGROUND
+           ========================================= */
+        .bg-container {
+            position: absolute; width: 100%; height: 100%;
+            z-index: 1; filter: blur(80px); opacity: 0.95;
+        }
+        .blob {
+            position: absolute;
+            animation: wind-wave 15s infinite alternate ease-in-out;
+        }
+        .blob-blue { background: #0038A8; width: 85vw; height: 85vh; top: -10%; left: -10%; animation-duration: 12s; }
+        .blob-red { background: #990000; width: 80vw; height: 80vh; bottom: -10%; right: -10%; animation-duration: 18s; animation-delay: -5s; }
+        .blob-yellow { background: #FCD116; width: 65vw; height: 65vh; top: 15%; left: 10%; animation-duration: 14s; animation-delay: -10s; }
+
+        @keyframes wind-wave {
+            0% { transform: translate(0, 0) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            33% { transform: translate(20vw, 15vh) scale(1.2); border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+            66% { transform: translate(-15vw, 25vh) scale(0.9); border-radius: 30% 70% 50% 50% / 60% 40% 70% 30%; }
+            100% { transform: translate(10vw, -20vh) scale(1.1); border-radius: 50% 50% 40% 60% / 40% 70% 30% 50%; }
+        }
+
+        /* =========================================
+           CENTER STAGE & TEXT
+           ========================================= */
+        .center-stage {
+            position: relative; z-index: 10; width: 100vw; height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .app-link {
+            position: relative; display: flex;
+            justify-content: center; align-items: center; width: 100%; height: 100%;
+        }
+        
+        /* =========================================
+           STEADY PORCELAIN TEXT STYLING
+           ========================================= */
+        .brand-text {
+            position: relative; z-index: 20; text-align: center;
+            font-size: clamp(0.6rem, 1.8vw, 1.3rem); 
+            font-weight: 400; 
+            letter-spacing: 5px; white-space: nowrap; 
+            text-transform: uppercase;
+        }
+
+        .word {
+            display: inline-block;
+            color: #e8e6e1; 
+            -webkit-text-stroke: 1px #a3a19d; 
+            text-shadow: 
+                -1px -1px 2px rgba(255, 255, 255, 0.9), 
+                2px 2px 4px rgba(0, 0, 0, 0.4); 
+            filter: url(#smooth-ceramic);
+            /* Removed the transition here since it no longer fades! */
+        }
+
+        /* =========================================
+           CELESTIAL IMAGES
+           ========================================= */
+        .celestial-img {
+            position: absolute;
+            filter: drop-shadow(0px 0px 15px rgba(255, 200, 0, 0.6));
+        }
+        .sun-img { width: 110px; }
+        .star-img1 { width: 55px; }
+        .star-img2 { width: 65px; }
+        .star-img3 { width: 45px; }
+
+        /* =========================================
+           CENTER CURSOR INDICATOR
+           ========================================= */
+        .cursor-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 54px;
+            height: 54px;
+            z-index: 30;
+            pointer-events: none;
+            animation: soft-pulse 2.2s ease-in-out infinite;
+        }
+        .cursor-indicator svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes soft-pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.92;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.08);
+                opacity: 1;
+            }
+        }
+
+        /* =========================================
+           THE STEALTH IFRAME (PORTFOLIO VIEWER)
+           ========================================= */
+        #portfolio-container {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 100; display: none; background-color: #000000;
+            opacity: 0; transition: opacity 1s ease-in-out; 
+        }
+        #portfolio-frame {
+            width: 100%; height: 100%; border: none;
+        }
+        #close-btn {
+            position: absolute; top: 25px; right: 35px; z-index: 101;
+            color: #ffffff; font-family: 'Marcellus', serif; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; opacity: 0.5; transition: opacity 0.3s ease;
+        }
+        #close-btn:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <svg style="width:0; height:0; position:absolute;" aria-hidden="true" focusable="false">
+        <filter id="smooth-ceramic">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div class="bg-container">
+        <div class="blob blob-blue"></div>
+        <div class="blob blob-red"></div>
+        <div class="blob blob-yellow"></div>
+    </div>
+
+    <div class="center-stage">
+        <div class="app-link" id="main-link" style="cursor: pointer;">
+            
+
+            <img src="sun.png" class="celestial-img sun-img" id="c-sun" alt="Sun">
+            <img src="star1.png" class="celestial-img star-img1" id="c-star1" alt="Star 1">
+            <img src="star2.png" class="celestial-img star-img2" id="c-star2" alt="Star 2">
+            <img src="star1.png" class="celestial-img star-img3" id="c-star3" alt="Star 3">
+
+            <div class="cursor-indicator" aria-hidden="true">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8 L16 42 L24.5 34.5 L31.5 54 L38 51 L31 32.5 L45 32.5 Z" fill="#000000"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div id="portfolio-container">
+        <div id="close-btn">Close ✕</div>
+        <iframe id="portfolio-frame" src=""></iframe>
+    </div>
+
+    <script>
+        // --- 1. BUTTERY SMOOTH MATH ORBIT ENGINE ---
+        const celestials = [
+            { el: document.getElementById('c-sun'), angle: 0, speed: 0.005, radiusX: 35, radiusY: 15 },
+            { el: document.getElementById('c-star1'), angle: 2, speed: 0.008, radiusX: 45, radiusY: 20 },
+            { el: document.getElementById('c-star2'), angle: 4, speed: 0.006, radiusX: 30, radiusY: 25 },
+            { el: document.getElementById('c-star3'), angle: 1, speed: 0.009, radiusX: 40, radiusY: 10 }
+        ];
+
+        function animateCelestials() {
+            celestials.forEach(c => {
+                c.angle += c.speed;
+                const x = 50 + (c.radiusX * Math.cos(c.angle));
+                const y = 50 + (c.radiusY * Math.sin(c.angle)) + (5 * Math.sin(c.angle * 2));
+                c.el.style.left = `${x}%`;
+                c.el.style.top = `${y}%`;
+                c.el.style.zIndex = Math.sin(c.angle) > 0 ? 25 : 15;
+                c.el.style.transform = `translate(-50%, -50%) rotate(${c.angle * 15}deg)`;
+            });
+            requestAnimationFrame(animateCelestials);
+        }
+        animateCelestials();
+
+        // --- 2. THE MAGIC IFRAME TRAP ---
+        const mainLink = document.getElementById('main-link');
+        const portfolioContainer = document.getElementById('portfolio-container');
+        const portfolioFrame = document.getElementById('portfolio-frame');
+        const closeBtn = document.getElementById('close-btn');
+
+
+        closeBtn.addEventListener('click', function() {
+            portfolioContainer.style.opacity = '0';
+            setTimeout(() => { 
+                portfolioContainer.style.display = 'none'; 
+                portfolioFrame.src = ""; 
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
