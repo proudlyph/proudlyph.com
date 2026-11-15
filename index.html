@@ -90,31 +90,48 @@
         .star-img3 { width: 45px; }
 
 
-        /* Centered entrance indicator */
+        /* Centered embossed white 3D entrance indicator */
         .enter-arrow {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             z-index: 35;
-            width: 52px;
-            height: 52px;
+            width: 58px;
+            height: 58px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #ffffff;
-            border-radius: 3px;
+            border: 3px solid rgba(255,255,255,.98);
+            border-radius: 7px;
             color: #ffffff;
+            background: linear-gradient(145deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,.13) 42%, rgba(40,40,40,.12) 100%);
+            box-shadow:
+                inset 3px 3px 3px rgba(255,255,255,.95),
+                inset -4px -4px 5px rgba(10,20,35,.30),
+                0 3px 0 rgba(255,255,255,.55),
+                0 8px 0 rgba(15,25,40,.40),
+                0 12px 15px rgba(0,0,0,.40),
+                -2px -2px 7px rgba(255,255,255,.45);
+            pointer-events: none;
+        }
+        .enter-arrow::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(255,255,255,.46);
+            border-radius: 3px;
             pointer-events: none;
         }
         .enter-arrow svg {
-            width: 26px;
-            height: 26px;
+            width: 29px;
+            height: 29px;
             fill: none;
             stroke: currentColor;
-            stroke-width: 2.2;
+            stroke-width: 3.2;
             stroke-linecap: round;
             stroke-linejoin: round;
+            filter: drop-shadow(2px 3px 1px rgba(0,0,0,.65)) drop-shadow(-1px -1px 1px rgba(255,255,255,.80));
         }
 
         /* =========================================
@@ -160,7 +177,7 @@
             <img src="data:image/webp;base64,UklGRvYDAABXRUJQVlA4WAoAAAAQAAAAPwAAKgAAQUxQSNkBAAABoENtmyHb+v6q2se27cy2zehEtm1Gto3I56Qns23btu6t7vr/YLSm+jKLiAnAP12iqAEUKY3Zc6EjRJT53a+cRNEx1FGkP0x0NPaLXCCKjELJXxxKA9JRMZgi1soORIbMTQkdfykEioamxuKYAxkP45NSWmsTmxkbxTKHcgMZxhittVJKUdqSzvOJHTOH0g0em9LVajdp26P3kKHj5p0TJ8zs3Je1owb06tKqfvWq5UvmSI+iCr8lWccxzJLY/ZLxMOmAopY3xNrAxoacwFlrbRCEVmRVLkVpASHbSpE/OWG8+GEgz7sj/Rpo/0BcmJqzIhsLQ1PaQBp5V4gEiSSOC+RJV0DDSw00uywuBZFtBaAJnpJBlu0cxot17kNPQMPjzJgpNplQrkAp+EzmjoTJOLYV4JVGbXYc48IYtjIYxieDVWJjQpHAMXMgh6A8ImR/JSFzGMifV0QsM/Of5aD8MdRTAmYrcqiOHv5GXMBWZsD4o3GAbcDytC9AKLrGSWDlTgZ5Qyj0zVmxS/ODFAzQ8KjIH9IO2heD/o7lSE3AAABpYMAzkd3+KHVSXvUFDCG+JuRf7KQMlB+EjHM7i4MUkjVA/YMNof0AkAFopEgafiuF1JXyifA/OgBWUDgg9gEAAHALAJ0BKkAAKwA+wUyeS6ekIqGwFV1Q8BgJbA25x/ALMkWzbnbNc9n55m+AbxkjcEjuq11AN1AVc05OgFrRNqhixzkYLJTengL9nTgQyiiosmtSPU/L/fvy8CgFRqDcZqYC+AAA/vkN//6Qf/2Mx/X7jYSMsIg/xqb0L2784Q7t7g5/L6Kn7RR3liPX+N4nf6Vbw32CnBL/cwhDCt4fJzcfktePkHFDDGJ1GC1r1RjpamzouihGFa60Ox1WfG1y1wQcPcj8haf5KhAfN4Hm5QlF2pfG8vqGBOAuOkWr39854CuMvykePuBsvVhed9i17SD+CMFukz8SXaenI38MNoFgrpgCphQVvBzIzGVneERpJaPNII4TpqlaCTGiGu/k+5e6iruX9HF6IYKVFWA4SmyshDqszQX3v8M0nCsjup2FeK4XdzD9pBc7OabzYAiNCwiA+gQsrxYG6Xi4gL2HD4C2pussRN8AkcPspMTVZ1G6qmZ/VMS4yubQlr0/+TDASGovw6zQUCucsV7H7Bc6YonYZaAuV5r1Gyy9Sq9IEdi9YAB/Ktxy/ya1AFq9pf0aHZS6v8BpbpaeLIhS32MxoHHey88wSlPbvk4FcWYGJl+EKGnrzehDFOKT33/zLYP+XNEKxvaqzXUX1o2gM+BbQ0SejMYAAAA=" class="celestial-img star-img3" id="c-star3" alt="Star 3">
             <div class="enter-arrow" aria-label="Enter">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 20 V4 M5 11 L12 4 L19 11"/>
+                    <path d="M4 12 H20 M13 5 L20 12 L13 19"/>
                 </svg>
             </div>
         </div>
